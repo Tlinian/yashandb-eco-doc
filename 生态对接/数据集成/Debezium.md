@@ -11,6 +11,10 @@ Debezium是一款开源的基于变更数据捕获（CDC）的分布式平台，
 - 已在[YashanDB官网下载中心](https://download.yashandb.com/download)下载YashanDB JDBC驱动包和YStream组件包。
 - 已向我们的技术支持人员获取YashanDB Debezium Connector组件包。
 - 已存在一个可正常访问的YashanDB服务端。
+- hjsa fh 测试作用
+
+
+
 
 ## 对接配置
 
