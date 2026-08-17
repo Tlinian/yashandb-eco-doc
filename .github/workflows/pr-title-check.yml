@@ -16,11 +16,10 @@ jobs:
         with:
           script: |
             const title = context.payload.pull_request.title;
-            const prefixPattern = /^\s*(feat|fix|refactor|docs):/;
-            const issuePattern = /(?:#\d+|<\d+>)/;
+            const titlePattern = /^\s*(feat|fix|refactor|docs)<#\d+>:\s+\S.*$/;
 
-            if (!prefixPattern.test(title) || !issuePattern.test(title)) {
+            if (!titlePattern.test(title)) {
               core.setFailed(
-                'PR title must start with feat:, fix:, refactor:, or docs: and include an issue number such as #123 or <123>.'
+                'PR title must match type<#issue>: description, for example feat<#123>: add export support. Allowed types: feat, fix, refactor, docs.'
               );
             }
