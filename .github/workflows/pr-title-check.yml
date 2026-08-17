@@ -1,0 +1,26 @@
+name: Check PR title
+
+on:
+  pull_request:
+    types: [opened, reopened, edited]
+
+permissions:
+  contents: read
+
+jobs:
+  check-title:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Validate title
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const title = context.payload.pull_request.title;
+            const prefixPattern = /^\s*(feat|fix|refactor|docs):/;
+            const issuePattern = /(?:#\d+|<\d+>)/;
+
+            if (!prefixPattern.test(title) || !issuePattern.test(title)) {
+              core.setFailed(
+                'PR title must start with feat:, fix:, refactor:, or docs: and include an issue number such as #123 or <123>.'
+              );
+            }
