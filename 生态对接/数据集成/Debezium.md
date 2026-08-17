@@ -1,4 +1,4 @@
-Debezium是一款开源的基于变更数据捕获（CDC）的分布式平台，通过该平台可实现实时捕获数据库的数据变更，以事件流形式发布到Kafka中。YashanDB提供 Debezium Connector组件，实现与Debezium的对接，可用于同步全量快照数据，捕获并记录YashanDB中发生的行级更改（包括CDC运行过程中的新增的表）；并可通过配置组件，使Debezium捕获指定的schema和表，将更改事件同步到Kafka。
+Debezium是一款开源的基于变更数据捕获（CDC）的分布式平台，通过该平台
 
 ## 对接前准备
 
